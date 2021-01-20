@@ -20,34 +20,37 @@ public struct SwipeData
 ```
 # Static Methods
 
+
+Method | Description
+| :------------- | :----------:
 SwipeEventTrigger.GetMoveDirection | Returns the up/down/left/right direction
 
 # Expand it !
 
 If you want to use different event behaviour, like calling a separate event for each direction, you can override OnSwipeDetected in inherited class :
 ```c#
-        protected override void OnSwipeDetected(SwipeData swipe)
-        {
-            switch (GetMoveDirection(swipe))
-            {
-                base.OnSwipeDetected(swipe);
+protected override void OnSwipeDetected(SwipeData swipe)
+{
+    switch (GetMoveDirection(swipe))
+    {
+        base.OnSwipeDetected(swipe);
 
-                case MoveDirection.Up:
-                    OnUpSwipe?.Invoke();
-                    break;
-                case MoveDirection.Down:
-                    OnDownSwipe?.Invoke();
-                    break;
-                case MoveDirection.Left:
-                    OnLeftSwipe?.Invoke();
-                    break;
-                case MoveDirection.Right:
-                    OnRightSwipe?.Invoke();
-                    break;
-                default:
-                    break;
-            }
-        }
+        case MoveDirection.Up:
+            OnUpSwipe?.Invoke();
+            break;
+        case MoveDirection.Down:
+            OnDownSwipe?.Invoke();
+            break;
+        case MoveDirection.Left:
+            OnLeftSwipe?.Invoke();
+            break;
+        case MoveDirection.Right:
+            OnRightSwipe?.Invoke();
+            break;
+        default:
+            break;
+    }
+}
 ```
 Example class SwipeDirectionEventTrigger is provided.
 
