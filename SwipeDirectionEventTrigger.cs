@@ -17,6 +17,8 @@ namespace UnityUtility.EventTriggers
 
         protected override void OnSwipeDetected(SwipeData swipe)
         {
+            base.OnSwipeDetected(swipe);
+
             switch (GetMoveDirection(swipe))
             {
                 case MoveDirection.Up:
